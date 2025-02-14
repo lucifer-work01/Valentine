@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffccd5;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #ff4d6d;
+        }
+        .button {
+            background-color: #ff4d6d;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+            position: absolute;
+        }
+        .button:hover {
+            background-color: #ff2a4f;
+            transform: scale(1.1);
+        }
+        #yesButton {
+            left: 42%;
+            top: 70%;
+        }
+        #noButton {
+            left: 52%;
+            top: 70%;
+        }
+        @keyframes floating-hearts {
+            0% { opacity: 0; transform: translateY(0); }
+            100% { opacity: 1; transform: translateY(-100vh); }
+        }
+        .heart {
+            position: fixed;
+            font-size: 2rem;
+            color: #ff4d6d;
+            animation: floating-hearts 4s linear infinite;
+        }
+    </style>
+    <script>
+        function moveNoButton() {
+            let button = document.getElementById('noButton');
+            let maxX = window.innerWidth - button.offsetWidth;
+            let maxY = window.innerHeight - button.offsetHeight;
+            let x = Math.random() * maxX;
+            let y = Math.random() * maxY;
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+        function showLove() {
+            document.body.innerHTML = '<h1>Yay! Happy Valentine\'s Day! 💖</h1>';
+            let img = document.createElement('img');
+            img.src = 'https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif';
+            img.style.marginTop = '20px';
+            document.body.appendChild(img);
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                heart.innerHTML = '❤️';
+                document.body.appendChild(heart);
+            }
+        }
+    </script>
+</head>
+<body>
+    <img src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" alt="Cute Bear" style="width: 200px; margin-bottom: 10px;">
+    <h1>Will you be my Valentine? 💕</h1>
+    <button class="button" id="yesButton" onclick="showLove()">Yes</button>
+    <button class="button" id="noButton" onclick="moveNoButton()">No</button>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffccd5;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #ff4d6d;
+            animation: heartbeat 1.5s infinite;
+        }
+        .button {
+            background-color: #ff4d6d;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background-color: #ff2a4f;
+            transform: scale(1.1);
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+    <script>
+        function goToValentinePage() {
+            window.location.href = 'valentine.html';
+        }
+    </script>
+</head>
+<body>
+    <h1>Hi Babygirl 💕</h1>
+    <button class="button" onclick="goToValentinePage()">Hi</button>
+</body>
+</html>
